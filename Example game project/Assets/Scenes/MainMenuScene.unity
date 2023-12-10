@@ -1554,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3396972355761572625, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
       propertyPath: _itemTag
-      value: )(*SA)(IQWOJDPOIQJPOPOKDQP:LMCV:LKMV
+      value: )(*SA)(IQWOJDPOIMCV:LKMV
       objectReference: {fileID: 0}
     - target: {fileID: 3396972355761572625, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
       propertyPath: _itemText
@@ -1682,6 +1682,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5190419897581114913, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586237200241323334, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501944968691357515, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
@@ -2521,7 +2525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3396972355761572625, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
       propertyPath: _itemTag
-      value: $*&@#OFNMEOWPKMFL:KMAS:LKD:OP
+      value: $*&@#OFNMEOWPMAS:LKD:OP
       objectReference: {fileID: 0}
     - target: {fileID: 3396972355761572625, guid: 3e7aaf3ee1e5da34b9cd18bc1a145053, type: 3}
       propertyPath: _itemText
@@ -13069,7 +13073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ticketsNumber: 0
-  _dailyBonusesNumber: 4
+  _dailyBonusesNumber: 0
 --- !u!4 &2120580728
 Transform:
   m_ObjectHideFlags: 0
