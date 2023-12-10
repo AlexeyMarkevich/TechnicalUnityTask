@@ -52,7 +52,7 @@ public class PlayerDataController : MonoBehaviour
     public void ResetNumberOfDays()
     {
         _dailyBonusesNumber = 0;
-        _lastDailyBonusDate = DateTime.Now;
+        _lastDailyBonusDate = DateTime.Now - new TimeSpan(1, 0, 0, 0);
         SavePlayerData();
         OnPlayerDataChanged?.Invoke();
     }
@@ -60,10 +60,10 @@ public class PlayerDataController : MonoBehaviour
     private void LoadPlayerData()
     {
         var data = PlayerDataIO.LoadPlayerData();
-        
+
         // Default player will be created
         if (data == null)
-            return;
+            data = new PlayerData(0, 0, DateTime.Now - new TimeSpan(1, 0, 0, 0));
 
         _ticketsNumber = data.TicketsNumber;
         _dailyBonusesNumber = data.DailyBonusesNumber;

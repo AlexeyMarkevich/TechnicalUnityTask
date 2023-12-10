@@ -48,13 +48,22 @@ public class ShopItemController : MonoBehaviour
     public int VirutalMoneyPrice => _virtualMoneyPrice;
     public CodelessIAPButton IAPButton => _iAPButton;
 
-    private void Start()
+    private void Awake()
     {
         ApplySettings();
     }
 
+    private void Start()
+    {
+        ApplyBlock();
+
+        if (ShopController.Instance.IsContainsPurchase(_itemTag))
+            SetSoldStyle();
+    }
+
     private void OnEnable()
     {
+        ApplyBlock();
         _buyButton.onClick.AddListener(BuyButtonClick);
     }
 
@@ -102,7 +111,8 @@ public class ShopItemController : MonoBehaviour
 
     private void ApplyBlock()
     {
-        bool isLocked = _minLevelBlock > 0 && !LevelsDataController.Instance.IsLevelCompleted(_minLevelBlock);
+        bool isLocked = _minLevelBlock > 0 &&
+            (LevelsDataController.Instance == null || !LevelsDataController.Instance.IsLevelCompleted(_minLevelBlock));
 
         _unlockedIcon.gameObject.SetActive(!isLocked);
         _lockedIcon.gameObject.SetActive(isLocked);

@@ -1,11 +1,23 @@
 using UnityEngine;
-using UnityEngine.Purchasing;
 
 public class ShopController : MonoBehaviour
 {
     public ShopItemController[] _shopItems;
 
     private PurchasesData _puchasesData;
+
+    public static ShopController Instance { get; private set; }
+
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            return;
+        }
+
+        Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -17,7 +29,6 @@ public class ShopController : MonoBehaviour
             if (IsContainsPurchase(_shopItems[i].ItemTag))
             {
                 _shopItems[i].SetSoldStyle();
-                _shopItems[i].IAPButton.onPurchaseComplete.AddListener((p) => { Debug.Log((Product)p); });
             }
         }
     }
@@ -47,7 +58,7 @@ public class ShopController : MonoBehaviour
         SavePurchases();
     }
 
-    private bool IsContainsPurchase(string tag)
+    public bool IsContainsPurchase(string tag)
     {
         if (_puchasesData == null || _puchasesData.Purchases == null)
             return false;
